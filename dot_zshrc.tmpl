@@ -1,0 +1,55 @@
+{{ if eq .chezmoi.os "linux" }}
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{ end }}
+
+eval "$(sheldon source)"
+eval "$(mise activate zsh)"
+eval "$(starship init zsh)"
+eval "$(direnv hook zsh)"
+
+export PATH="/usr/local/sbin:$PATH"
+
+setopt share_history
+setopt AUTO_CD
+setopt AUTO_PARAM_KEYS
+
+alias mv='mv -i'
+alias rm='rm -i'
+alias cp='cp -i'
+
+if [[ $(command -v eza) ]]; then
+  alias ls='eza --icons --git'
+  alias lt='eza -T -L 3 -a -I "node_modules|.git|.cache" --icons'
+  alias ltl='eza -T -L 3 -a -I "node_modules|.git|.cache" -l --icons'
+fi
+
+alias ll='ls -lGF'
+alias la="ls -la"
+
+alias cat='gat'
+
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+
+alias g='git'
+alias ga='git add'
+alias gd='git diff'
+alias gs='git status'
+alias gp='git push'
+alias gb='git branch'
+alias gst='git status'
+alias gco='git checkout'
+alias gf='git fetch'
+alias gc='git commit'
+
+alias -g G='| grep --color=auto'
+alias -g C='| wc -l'
+
+alias pip-upgrade-all="pip list -o | tail -n +3 | awk '{ print \$1 }' | xargs pip install -U"
+
+alias vi="nvim"
+alias zshrc="chezmoi edit ~/.zshrc"
+alias zshplug="chezmoi edit ~/.config/sheldon/plugins.toml"
+alias vinit="chezmoi edit ~/.config/nvim/init.lua"
+alias viplug="chezmoi edit ~/.config/nvim/lua/plugins.lua"
