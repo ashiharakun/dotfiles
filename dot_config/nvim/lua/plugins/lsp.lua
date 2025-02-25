@@ -4,7 +4,6 @@ return {
         tag = "legacy",
         event = "LspAttach",
         opts = {
-          -- options
         },
       },
       {
