@@ -5,8 +5,8 @@ return {
         event = "LspAttach",
         opts = {
         },
-      },
-      {
+     },
+     {
         "williamboman/mason.nvim",
         build = ":MasonUpdate",
         opts = {},
@@ -16,7 +16,7 @@ return {
         dependencies = {
             { "williamboman/mason.nvim" },
             { "neovim/nvim-lspconfig" },
-            { "hrsh7th/nvim-cmp" },
+            { "jay-babu/mason-null-ls.nvim" },
         },
         config = function()
             local lspconfig = require("lspconfig")
@@ -25,6 +25,7 @@ return {
                     lspconfig[server_name].setup({})
                 end,
             })
+            require("mason-null-ls").setup({})
 
             vim.api.nvim_create_autocmd("LspAttach", {
                 callback = function(_)
@@ -47,5 +48,9 @@ return {
                 vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
             )
         end
-    }
+    },
+    {
+        "nvimtools/none-ls.nvim",
+        opts = {}
+    },
 }
