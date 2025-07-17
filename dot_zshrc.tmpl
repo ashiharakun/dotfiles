@@ -1,7 +1,3 @@
-{{ if eq .chezmoi.os "linux" }}
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-{{ end }}
-
 eval "$(sheldon source)"
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
