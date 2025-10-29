@@ -8,3 +8,6 @@ snippets:
   - name: pip-upgrade-all
     keyword: pipup
     snippet: pip list -o | tail -n +3 | awk '{ print $1 }' | xargs pip install -U
+  - name: lazygit
+    keyword: lg
+    snippet: lazygit
