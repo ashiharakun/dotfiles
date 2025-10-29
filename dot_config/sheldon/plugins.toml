@@ -2,11 +2,37 @@ shell = "zsh"
 
 [plugins]
 
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 
-[plugins.zsh-syntax-highlighting]
-github = "zsh-users/zsh-syntax-highlighting"
+[plugins.zeno]
+github = "yuki-yano/zeno.zsh"
+
+[plugins.ni]
+github = "azu/ni.zsh"
+apply = ["lazy"]
+use = ["ni.plugin.zsh"]
+
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+apply = ["defer"]
+
+[templates]
+defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
+lazy = """
+	function {{ name }}() {
+        unfunction '{{ name }}'
+        {{ hooks?.pre | nl }}
+        {% for file in files %}
+            source '{{ file }}'
+        {% endfor %}
+        {{ hooks?.post | nl }}
+        {{ name }} "$@"
+   }
+   """
