@@ -2,3 +2,9 @@ snippets:
   - name: git status
     keyword: gs
     snippet: git status --short --branch
+  - name: docker ps
+    keyword: dps
+    snippet: docker ps
+  - name: pip-upgrade-all
+    keyword: pipup
+    snippet: pip list -o | tail -n +3 | awk '{ print $1 }' | xargs pip install -U

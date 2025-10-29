@@ -47,8 +47,6 @@ alias cdgt='cd $(git rev-parse --show-toplevel)'
 alias -g G='| grep --color=auto'
 alias -g C='| wc -l'
 
-alias pip-upgrade-all="pip list -o | tail -n +3 | awk '{ print \$1 }' | xargs pip install -U"
-
 alias vi="nvim"
 
 {{ if eq .chezmoi.os "darwin" }}
@@ -61,34 +59,15 @@ zshaddhistory() {
     [[ ! "$line" =~ "^(cd|jj?|lazygit|la|ll|ls|rm|rmdir)($| )" ]]
 }
 
-# default
-export ZENO_GIT_CAT="cat"
-# git file preview with color
-# export ZENO_GIT_CAT="bat --color=always"
-
-# default
-export ZENO_GIT_TREE="tree"
-# git folder preview with color
-# export ZENO_GIT_TREE="eza --tree"
+# zeno settings
+export ZENO_GIT_CAT="bat --color=always"
+export ZENO_GIT_TREE="eza --tree"
 
 if [[ -n $ZENO_LOADED ]]; then
   bindkey ' '  zeno-auto-snippet
-
-  # fallback if snippet not matched (default: self-insert)
-  # export ZENO_AUTO_SNIPPET_FALLBACK=self-insert
-
-  # if you use zsh's incremental search
-  # bindkey -M isearch ' ' self-insert
-
   bindkey '^m' zeno-auto-snippet-and-accept-line
-
   bindkey '^i' zeno-completion
-
   bindkey '^x '  zeno-insert-space
   bindkey '^x^m' accept-line
   bindkey '^x^z' zeno-toggle-auto-snippet
-
-  # fallback if completion not matched
-  # (default: fzf-completion if exists; otherwise expand-or-complete)
-  # export ZENO_COMPLETION_FALLBACK=expand-or-complete
 fi
