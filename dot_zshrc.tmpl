@@ -3,8 +3,8 @@ compinit
 
 export PATH="/usr/local/sbin:$PATH"
 
-eval "$(sheldon source)"
 eval "$(mise activate zsh)"
+eval "$(sheldon source)"
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
 
@@ -53,13 +53,13 @@ alias vi="nvim"
 alias bu='brew update;brew upgrade'
 {{ end }}
 
-
 zshaddhistory() {
     local line="${1%%$'\n'}"
     [[ ! "$line" =~ "^(cd|jj?|lazygit|la|ll|ls|rm|rmdir)($| )" ]]
 }
 
 # zeno settings
+export ZENO_HOME=~/.config/zeno
 export ZENO_GIT_CAT="bat --color=always"
 export ZENO_GIT_TREE="eza --tree"
 
