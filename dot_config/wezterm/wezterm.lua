@@ -8,14 +8,16 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
-config.color_scheme = 'Tokyo Night'
-config.window_background_opacity = 0.88
+config.color_scheme = 'Everforest Dark Medium (Gogh)'
+config.window_background_opacity = 0.92
 config.font = wezterm.font("PleckJP")
 config.initial_rows = 38
 config.initial_cols = 90
 config.font_size = 16
 config.keys = require("keybinds").keys
 config.key_tables = require("keybinds").key_tables
+
+config.window_decorations = "RESIZE"
 
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 2000 }
 
