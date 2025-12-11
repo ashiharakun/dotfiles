@@ -1,4 +1,6 @@
-## 使い方メモ
+## README
+
+現在macOSのみで確認
 
 ### 更新（flakeの入力更新）
 ```bash
@@ -7,7 +9,7 @@ nix flake update
 
 ### macOSへの適用（nix-darwin + Home Manager）
 ```bash
-sudo darwin-rebuild switch --flake .mm1p#
+sudo darwin-rebuild switch --flake .#mm1p
 ```
 
 ### Home Managerのみ適用（Linux/NixOSやmacOSでユーザ設定だけ反映）
