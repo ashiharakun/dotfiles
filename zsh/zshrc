@@ -3,7 +3,6 @@ compinit
 
 export PATH="/usr/local/sbin:$PATH"
 
-eval "$(mise activate zsh)"
 eval "$(sheldon source)"
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
@@ -49,10 +48,6 @@ alias -g C='| wc -l'
 
 alias vi="nvim"
 
-{{ if eq .chezmoi.os "darwin" }}
-alias bu='brew update;brew upgrade'
-{{ end }}
-
 zshaddhistory() {
     local line="${1%%$'\n'}"
     [[ ! "$line" =~ "^(cd|jj?|lazygit|la|ll|ls|rm|rmdir)($| )" ]]
@@ -72,8 +67,7 @@ if [[ -n $ZENO_LOADED ]]; then
   bindkey '^x^z' zeno-toggle-auto-snippet
 fi
 
-export NI_USE_SOCKET_FIREWALL=1
-
+# yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -81,3 +75,16 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+# ghq
+function ghq-fzf_change_directory() {
+  local src=$(ghq list | fzf --preview "eza -l -g -a --icons $(ghq root)/{}")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+
+zle -N ghq-fzf_change_directory
+bindkey '^f' ghq-fzf_change_directory
