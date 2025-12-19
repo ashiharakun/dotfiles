@@ -1,5 +1,13 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
+if test -d /usr/local/sbin
+    fish_add_path -g /usr/local/sbin
 end
 
-starship init fish | source
+if command -q direnv
+    direnv hook fish | source
+end
+
+if status is-interactive
+    if command -q starship
+        starship init fish | source
+    end
+end
