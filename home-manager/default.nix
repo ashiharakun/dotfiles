@@ -9,14 +9,6 @@ in
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
-    file.".zshrc" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zsh/zshrc";
-      force = true;
-    };
-    file.".zshenv" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zsh/zshenv";
-      force = true;
-    };
     packages = with pkgs; [
       git
       eza
@@ -49,6 +41,12 @@ in
       initContent = lib.mkBefore ''
         # Prefer Nix paths over Homebrew
         path=("/run/current-system/sw/bin" "/etc/profiles/per-user/${userName}/bin" "$HOME/.nix-profile/bin" $path)
+      '';
+      envExtra = ''
+        source "${dotfilesDir}/zsh/zshenv"
+      '';
+      initExtra = ''
+        source "${dotfilesDir}/zsh/zshrc"
       '';
     };
     direnv = {

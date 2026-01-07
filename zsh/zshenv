@@ -1,5 +1,8 @@
-if [ -e "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh" ]; then
-  . "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh"
-elif [ -e "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
-  . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+if [[ -z "$__HM_ZSH_SESS_VARS_SOURCED" ]]; then
+  if [ -e "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh" ]; then
+    . "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh"
+  elif [ -e "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
+    . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+  fi
+  export __HM_ZSH_SESS_VARS_SOURCED=1
 fi
