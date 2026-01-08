@@ -20,6 +20,7 @@
       "discord"
       "firefox"
       "ghostty"
+      "wezterm@nightly"
       "obsidian"
       "pearcleaner"
       "pleck-jp"
