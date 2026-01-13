@@ -38,15 +38,17 @@ in
     };
     zsh = {
       enable = true;
-      initContent = lib.mkBefore ''
-        # Prefer Nix paths over Homebrew
-        path=("/run/current-system/sw/bin" "/etc/profiles/per-user/${userName}/bin" "$HOME/.nix-profile/bin" $path)
-      '';
+      initContent = lib.mkMerge [
+        (lib.mkBefore ''
+          # Prefer Nix paths over Homebrew
+          path=("/run/current-system/sw/bin" "/etc/profiles/per-user/${userName}/bin" "$HOME/.nix-profile/bin" $path)
+        '')
+        ''
+          source "${dotfilesDir}/zsh/zshrc"
+        ''
+      ];
       envExtra = ''
         source "${dotfilesDir}/zsh/zshenv"
-      '';
-      initExtra = ''
-        source "${dotfilesDir}/zsh/zshrc"
       '';
     };
     direnv = {
