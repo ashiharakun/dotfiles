@@ -27,6 +27,7 @@
       "raycast"
       "vivaldi"
       "1password-cli"
+      "zed"
     ];
   };
 }
