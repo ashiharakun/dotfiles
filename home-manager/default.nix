@@ -75,10 +75,6 @@ in
         source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zeno";
         force = true;
       };
-      "fish" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/fish";
-        force = true;
-      };
     };
   };
 }
