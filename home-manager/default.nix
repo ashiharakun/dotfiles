@@ -57,6 +57,18 @@ in
     };
   };
 
+  home.file = {
+    ".claude/CLAUDE.md" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/claude/CLAUDE.md";
+    };
+    ".claude/settings.json" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/claude/settings.json";
+    };
+    ".claude/statusline.sh" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/claude/statusline.sh";
+    };
+  };
+
   xdg = {
     configFile = {
       "nvim" = {
