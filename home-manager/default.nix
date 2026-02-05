@@ -25,6 +25,8 @@ in
       yt-dlp
       codex
       claude-code
+      yt-dlp
+      ffmpeg
     ];
   };
 
