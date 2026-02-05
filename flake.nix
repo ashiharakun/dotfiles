@@ -7,8 +7,6 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    git-hooks.url = "github:cachix/git-hooks.nix";
-    git-hooks.inputs.nixpkgs.follows = "nixpkgs";
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
@@ -23,21 +21,9 @@
     flake-parts.lib.mkFlake { inherit inputs; } ({ inputs, ... }: {
       systems = [ "aarch64-darwin" "x86_64-linux" "aarch64-linux" ];
 
-      perSystem = { system, pkgs, ... }:
-        let
-          hookSettings = import ./git-hooks.nix;
-          preCommitCheck = inputs.git-hooks.lib.${system}.run {
-            src = ./.;
-            hooks = hookSettings;
-          };
-        in
-        {
-          formatter = pkgs.nixpkgs-fmt;
-          devShells.default = pkgs.mkShell {
-            inherit (preCommitCheck) shellHook;
-          };
-          checks.pre-commit = preCommitCheck;
-        };
+      perSystem = { system, pkgs, ... }: {
+        formatter = pkgs.nixpkgs-fmt;
+      };
 
       flake =
         let
