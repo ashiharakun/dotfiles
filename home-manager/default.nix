@@ -69,6 +69,9 @@ in
     ".claude/statusline.sh" = {
       source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/claude/statusline.sh";
     };
+    ".claude/skills" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/claude/skills";
+    };
   };
 
   xdg = {
