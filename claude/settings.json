@@ -1,9 +1,4 @@
 {
-  "language": "Japanese",
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.sh"
-  },
   "hooks": {
     "Stop": [
       {
@@ -16,5 +11,10 @@
         ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "language": "Japanese"
 }
