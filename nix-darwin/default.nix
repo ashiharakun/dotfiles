@@ -15,6 +15,8 @@
     defaults.finder.AppleShowAllFiles = true;
   };
 
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   nix.settings.experimental-features = "nix-command flakes";
 
   users.users.${userName} = {
