@@ -1,4 +1,26 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(which:*)",
+      "Bash(file:*)",
+      "Bash(tree:*)",
+      "Bash(pwd:*)",
+      "Bash(echo:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git branch:*)",
+      "Bash(git show:*)",
+      "Bash(git stash list:*)",
+      "Bash(git remote:*)",
+      "Bash(git tag:*)"
+    ]
+  },
   "hooks": {
     "Stop": [
       {
