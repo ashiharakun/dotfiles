@@ -16,6 +16,7 @@
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local.watchIdAuth = true;
 
   nix.settings.experimental-features = "nix-command flakes";
 
