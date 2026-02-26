@@ -7,6 +7,7 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
@@ -27,11 +28,18 @@
 
       flake =
         let
+          unstablePkgsFor = system: import inputs.nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
           homeSystems = [ "aarch64-darwin" "x86_64-linux" "aarch64-linux" ];
           homes = inputs.nixpkgs.lib.genAttrs homeSystems (system:
             home-manager.lib.homeManagerConfiguration {
               pkgs = inputs.nixpkgs.legacyPackages.${system};
-              extraSpecialArgs = { inherit self userName; };
+              extraSpecialArgs = {
+                inherit self userName;
+                pkgs-unstable = unstablePkgsFor system;
+              };
               modules = [
                 ./home-manager/hosts/ashiharakun.nix
                 {
@@ -55,7 +63,10 @@
               home-manager.darwinModules.home-manager
               {
                 home-manager = {
-                  extraSpecialArgs = { inherit self userName; };
+                  extraSpecialArgs = {
+                    inherit self userName;
+                    pkgs-unstable = unstablePkgsFor "aarch64-darwin";
+                  };
                   useGlobalPkgs = true;
                   useUserPackages = true;
                   users.${userName} = import ./home-manager/hosts/ashiharakun.nix;

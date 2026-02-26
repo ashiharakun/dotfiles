@@ -1,4 +1,4 @@
-{ config, pkgs, lib, userName, ... }:
+{ config, pkgs, pkgs-unstable, lib, userName, ... }:
 let
   dotfilesDir = "${config.home.homeDirectory}/dotfiles";
 in
@@ -24,7 +24,7 @@ in
       sheldon
       yt-dlp
       codex
-      claude-code
+      pkgs-unstable.claude-code
       yt-dlp
       ffmpeg
     ];
