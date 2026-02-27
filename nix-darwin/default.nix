@@ -21,7 +21,7 @@
   nix.settings.experimental-features = "nix-command flakes";
 
   users.users.${userName} = {
-    home = "/Users/${userName}/";
+    home = "/Users/${userName}";
     uid = 501;
     shell = pkgs.zsh;
   };

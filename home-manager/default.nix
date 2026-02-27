@@ -49,9 +49,6 @@ in
           source "${dotfilesDir}/zsh/zshrc"
         ''
       ];
-      envExtra = ''
-        source "${dotfilesDir}/zsh/zshenv"
-      '';
     };
     direnv = {
       enable = true;
