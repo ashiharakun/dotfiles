@@ -12,7 +12,6 @@ in
     packages = with pkgs; [
       git
       eza
-      fish
       gh
       ghq
       lazygit
@@ -22,10 +21,10 @@ in
       deno
       fzf
       sheldon
+      zoxide
       yt-dlp
       codex
       pkgs-unstable.claude-code
-      yt-dlp
       ffmpeg
     ];
   };

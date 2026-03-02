@@ -6,6 +6,7 @@ export PATH="/usr/local/sbin:$PATH"
 eval "$(sheldon source)"
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
+eval "$(zoxide init zsh)"
 
 # 履歴関連
 HISTFILE=$(eval echo ~$USER)/.zsh_history

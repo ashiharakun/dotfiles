@@ -2,6 +2,12 @@ snippets:
   - name: git status
     keyword: gs
     snippet: git status --short --branch
+  - name: git log graph
+    keyword: glg
+    snippet: git log --oneline --graph --decorate
+  - name: ghq get
+    keyword: gg
+    snippet: ghq get
   - name: docker ps
     keyword: dps
     snippet: docker ps
@@ -11,3 +17,9 @@ snippets:
   - name: lazygit
     keyword: lg
     snippet: lazygit
+  - name: nix rebuild
+    keyword: nrb
+    snippet: sudo darwin-rebuild switch --flake .#mm1p
+  - name: nix flake update
+    keyword: nfu
+    snippet: nix flake update
