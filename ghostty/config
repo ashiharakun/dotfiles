@@ -1,0 +1,13 @@
+font-family = PleckJP
+font-size = 16
+theme = Everforest Dark Hard
+font-feature = -dlig
+font-thicken = true
+font-thicken-strength = 1
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+background = 303333
+background-opacity = 0.88
+background-blur = 10
+alpha-blending = linear

@@ -89,6 +89,10 @@ in
         source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zeno";
         force = true;
       };
+      "ghostty" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/ghostty";
+        force = true;
+      };
     };
   };
 }
