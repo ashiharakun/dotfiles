@@ -14,7 +14,7 @@ sudo darwin-rebuild switch --flake .#mm1p
 
 ### Home Managerのみ適用（Linux/NixOSやmacOSでユーザ設定だけ反映）
 ```bash
-home-manager switch --flake .#ashiahrakun
+home-manager switch --flake .#ashiharakun
 ```
 
 ### flake全体のチェック

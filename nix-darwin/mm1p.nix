@@ -20,7 +20,6 @@
       "discord"
       "firefox"
       "ghostty"
-      "wezterm@nightly"
       "obsidian"
       "pearcleaner"
       "raycast"
