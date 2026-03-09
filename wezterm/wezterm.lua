@@ -10,7 +10,7 @@ end
 
 config.color_scheme = 'Everforest Dark Medium (Gogh)'
 config.window_background_opacity = 0.92
-config.font = wezterm.font("PleckJP")
+config.font = wezterm.font("PlemolJP")
 config.initial_rows = 38
 config.initial_cols = 90
 config.font_size = 16

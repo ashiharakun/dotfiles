@@ -23,7 +23,6 @@
       "wezterm@nightly"
       "obsidian"
       "pearcleaner"
-      "pleck-jp"
       "raycast"
       "vivaldi"
       "1password-cli"

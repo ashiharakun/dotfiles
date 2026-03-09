@@ -26,6 +26,7 @@ in
       codex
       pkgs-unstable.claude-code
       ffmpeg
+      plemoljp-nf
     ];
   };
 
