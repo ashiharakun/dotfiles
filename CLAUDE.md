@@ -1,29 +1,6 @@
-# CLAUDE.md
-
-このファイルは Claude Code (claude.ai/code) がこのリポジトリで作業する際のガイドです。
-
 ## リポジトリ概要
 
 macOS (aarch64-darwin) 向けの dotfiles リポジトリ。Nix Flakes + nix-darwin + Home Manager で構成管理を行う。
-
-## よく使うコマンド
-
-```bash
-# macOS全体への適用（nix-darwin + Home Manager）
-sudo darwin-rebuild switch --flake .#mm1p
-
-# Home Managerのみ適用
-home-manager switch --flake .#ashiharakun
-
-# flake入力の更新
-nix flake update
-
-# flake全体のチェック
-nix flake check
-
-# Nixフォーマッター（nixpkgs-fmt）
-nix fmt
-```
 
 ## アーキテクチャ
 
