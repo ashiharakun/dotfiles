@@ -1,4 +1,8 @@
 {
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": false
+  },
   "permissions": {
     "allow": [
       "Bash(ls:*)",
