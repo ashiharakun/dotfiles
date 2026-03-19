@@ -1,9 +1,29 @@
 {
   "sandbox": {
     "enabled": true,
-    "allowUnsandboxedCommands": false
+    "allowUnsandboxedCommands": false,
+    "filesystem": {
+      "denyRead": ["~/.ssh"]
+    },
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "*.githubusercontent.com",
+        "*.npmjs.org",
+        "pypi.org"
+      ]
+    }
   },
   "permissions": {
+    "deny": [
+      "Bash(rm -rf *)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)",
+      "Read(./config/credentials.json)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)"
+    ],
     "allow": [
       "Bash(ls:*)",
       "Bash(cat:*)",
