@@ -8,10 +8,11 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-nixos.url = "github:NixOS/nixpkgs/nixos-25.11";
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = inputs@{ self, nix-darwin, home-manager, flake-parts, ... }:
+  outputs = inputs@{ self, nix-darwin, home-manager, flake-parts, nixpkgs-nixos, ... }:
     let
       userName = "ashiharakun";
       homeDirFor = system:
@@ -66,6 +67,26 @@
                   extraSpecialArgs = {
                     inherit self userName;
                     pkgs-unstable = unstablePkgsFor "aarch64-darwin";
+                  };
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  users.${userName} = import ./home-manager/hosts/ashiharakun.nix;
+                };
+              }
+            ];
+          };
+
+          nixosConfigurations."nixoshost" = nixpkgs-nixos.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit self userName; };
+            modules = [
+              ./nixos/default.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  extraSpecialArgs = {
+                    inherit self userName;
+                    pkgs-unstable = unstablePkgsFor "x86_64-linux";
                   };
                   useGlobalPkgs = true;
                   useUserPackages = true;
