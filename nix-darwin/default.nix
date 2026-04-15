@@ -7,6 +7,15 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # direnv のビルド時 fish テストが macOS セキュリティ機構に kill されるため無効化
+  nixpkgs.overlays = [
+    (final: prev: {
+      direnv = prev.direnv.overrideAttrs (_: {
+        doCheck = false;
+      });
+    })
+  ];
+
   system = {
     configurationRevision = self.rev or self.dirtyRev or null;
     stateVersion = 6;
