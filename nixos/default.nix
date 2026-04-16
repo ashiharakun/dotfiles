@@ -9,7 +9,7 @@
     isNormalUser = true;
     home = "/home/${userName}";
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" ];
   };
 
   programs.zsh.enable = true;
