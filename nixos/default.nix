@@ -14,5 +14,5 @@
 
   programs.zsh.enable = true;
 
-  system.stateVersion = "25.05";
+  # system.stateVersion はホスト別ファイルで設定すること
 }

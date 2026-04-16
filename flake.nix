@@ -77,10 +77,9 @@
           };
 
           nixosConfigurations."nixoshost" = nixpkgs-nixos.lib.nixosSystem {
-            system = "x86_64-linux";
             specialArgs = { inherit self userName; };
             modules = [
-              ./nixos/default.nix
+              ./nixos/hosts/nixoshost.nix
               home-manager.nixosModules.home-manager
               {
                 home-manager = {
