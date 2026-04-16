@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, userName, ... }: # pkgs: systemPackages用、userName: 1password-gui用
 
 {
   imports = [
@@ -13,19 +13,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   time.timeZone = "Asia/Tokyo";
-
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "ja_JP.UTF-8";
-    LC_IDENTIFICATION = "ja_JP.UTF-8";
-    LC_MEASUREMENT = "ja_JP.UTF-8";
-    LC_MONETARY = "ja_JP.UTF-8";
-    LC_NAME = "ja_JP.UTF-8";
-    LC_NUMERIC = "ja_JP.UTF-8";
-    LC_PAPER = "ja_JP.UTF-8";
-    LC_TELEPHONE = "ja_JP.UTF-8";
-    LC_TIME = "ja_JP.UTF-8";
-  };
 
   services.xserver.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
@@ -46,7 +33,19 @@
     pulse.enable = true;
   };
 
-  programs.firefox.enable = true;
+  # 1Password（GUI の polkit 統合に専用モジュールが必要）
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ userName ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    discord
+    ghostty
+    obsidian
+    vivaldi
+  ];
 
   system.stateVersion = "25.11";
 }
