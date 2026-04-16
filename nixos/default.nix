@@ -26,7 +26,7 @@
   };
 
   fonts.packages = with pkgs; [
-    noto-fonts-cjk-gothic
+    noto-fonts-cjk-sans
     noto-fonts-cjk-serif
   ];
 
