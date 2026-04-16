@@ -1,6 +1,6 @@
-{ ... }:
+{ pkgs, lib, ... }:
 
-{
+lib.mkIf pkgs.stdenv.isLinux {
   # fcitx5 キーバインド（左Alt: IME オフ、右Alt: IME オン）
   xdg.configFile."fcitx5/config".text = ''
     [Hotkey]

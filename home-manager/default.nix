@@ -3,7 +3,7 @@ let
   dotfilesDir = "${config.home.homeDirectory}/dotfiles";
 in
 {
-  imports = lib.optionals pkgs.stdenv.isLinux [ ./linux.nix ];
+  imports = [ ./linux.nix ];
   home = {
     stateVersion = "25.05";
     sessionVariables = {
