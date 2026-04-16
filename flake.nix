@@ -76,16 +76,16 @@
             ];
           };
 
-          nixosConfigurations."nixoshost" = nixpkgs-nixos.lib.nixosSystem {
+          nixosConfigurations."paseri" = nixpkgs-nixos.lib.nixosSystem {
             specialArgs = { inherit self userName; };
             modules = [
-              ./nixos/hosts/nixoshost.nix
+              ./nixos/hosts/paseri/configuration.nix
               home-manager.nixosModules.home-manager
               {
                 home-manager = {
                   extraSpecialArgs = {
                     inherit self userName;
-                    pkgs-unstable = unstablePkgsFor "x86_64-linux";
+                    pkgs-unstable = unstablePkgsFor "aarch64-linux";
                   };
                   useGlobalPkgs = true;
                   useUserPackages = true;
