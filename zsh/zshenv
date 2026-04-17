@@ -6,8 +6,3 @@ if [[ -z "$__HM_ZSH_SESS_VARS_SOURCED" ]]; then
   fi
   export __HM_ZSH_SESS_VARS_SOURCED=1
 fi
-
-# Linux: setuid wrappers (sudo 等) が必ず先頭に来るようにする
-if [[ -d /run/wrappers/bin ]]; then
-  export PATH="/run/wrappers/bin:$PATH"
-fi
