@@ -1,6 +1,6 @@
 ## リポジトリ概要
 
-macOS (aarch64-darwin) 向けの dotfiles リポジトリ。Nix Flakes + nix-darwin + Home Manager で構成管理を行う。
+macOS (aarch64-darwin) nixos向けの dotfiles リポジトリ。Nix Flakes + nix-darwin + Home Manager で構成管理を行う。
 
 ## アーキテクチャ
 

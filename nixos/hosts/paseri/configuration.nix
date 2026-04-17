@@ -15,12 +15,16 @@
   time.timeZone = "Asia/Tokyo";
 
   services.xserver.enable = true;
-  services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.cinnamon.enable = true;
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
+
+  # Wayland / Hyprland
+  programs.hyprland.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
 
   services.printing.enable = true;
 
@@ -44,6 +48,15 @@
     ghostty
     obsidian
     vivaldi
+    # Hyprland 関連
+    waybar
+    wofi
+    dunst
+    wl-clipboard
+    grim
+    slurp
+    networkmanagerapplet
+    xdg-utils
   ];
 
   system.stateVersion = "25.11";
