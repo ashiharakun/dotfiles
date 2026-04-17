@@ -42,10 +42,10 @@ in
     zsh = {
       enable = true;
       initContent = lib.mkMerge [
-        (lib.mkBefore ''
-          # Prefer Nix paths over Homebrew
+        (lib.mkBefore (lib.optionalString pkgs.stdenv.isDarwin ''
+          # Prefer Nix paths over Homebrew (macOS only)
           path=("/run/current-system/sw/bin" "/etc/profiles/per-user/${userName}/bin" "$HOME/.nix-profile/bin" $path)
-        '')
+        ''))
         ''
           source "${dotfilesDir}/zsh/zshrc"
         ''
