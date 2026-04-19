@@ -14,7 +14,11 @@ sudo darwin-rebuild switch --flake .#mm1p
 
 ### NixOS への適用（NixOS + Home Manager）
 ```bash
+# paseri (aarch64-linux)
 sudo nixos-rebuild switch --flake .#paseri
+
+# basil (x86_64-linux)
+sudo nixos-rebuild switch --flake .#basil
 ```
 
 ### Home Manager のみ適用（Linux/NixOS や macOS でユーザー設定だけ反映）

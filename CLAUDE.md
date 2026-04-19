@@ -10,7 +10,8 @@ macOS (aarch64-darwin) および NixOS (aarch64-linux, x86_64-linux) 向けの d
 - `nix-darwin/default.nix` — macOS 共通のシステム設定（Nix 実験機能、Touch ID sudo 等）
 - `nix-darwin/mm1p.nix` — macOS ホスト固有設定（Homebrew casks など）。`default.nix` を import
 - `nixos/default.nix` — NixOS 共通設定（ユーザー、zsh、日本語入力 fcitx5 等）
-- `nixos/hosts/paseri/` — NixOS ホスト `paseri` 固有設定（`configuration.nix`, `hardware-configuration.nix`）
+- `nixos/hosts/paseri/` — NixOS ホスト `paseri`（aarch64-linux）固有設定（`configuration.nix`, `hardware-configuration.nix`）
+- `nixos/hosts/basil/` — NixOS ホスト `basil`（x86_64-linux）固有設定（`configuration.nix`, `hardware-configuration.nix`）
 - `home-manager/default.nix` — ユーザー環境の共通設定（パッケージ、シェル、シンボリックリンク）。Linux 向け追加設定は `linux.nix` を import
 - `home-manager/linux.nix` — Linux 専用 Home Manager 設定（Hyprland, fcitx5 キーバインド, Firefox 等）
 - `home-manager/hosts/ashiharakun.nix` — ユーザー固有の設定オーバーライド用。`../default.nix` を import
