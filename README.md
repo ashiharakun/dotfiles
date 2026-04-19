@@ -1,23 +1,33 @@
 ## README
 
-現在macOSのみで確認
+macOS および NixOS で動作確認済み。
 
-### 更新（flakeの入力更新）
+### 更新（flake の入力更新）
 ```bash
 nix flake update
 ```
 
-### macOSへの適用（nix-darwin + Home Manager）
+### macOS への適用（nix-darwin + Home Manager）
 ```bash
 sudo darwin-rebuild switch --flake .#mm1p
 ```
 
-### Home Managerのみ適用（Linux/NixOSやmacOSでユーザ設定だけ反映）
+### NixOS への適用（NixOS + Home Manager）
+```bash
+sudo nixos-rebuild switch --flake .#paseri
+```
+
+### Home Manager のみ適用（Linux/NixOS や macOS でユーザー設定だけ反映）
 ```bash
 home-manager switch --flake .#ashiharakun
 ```
 
-### flake全体のチェック
+### flake 全体のチェック
 ```bash
 nix flake check
+```
+
+### フォーマット
+```bash
+nix fmt
 ```
