@@ -20,10 +20,30 @@
     variant = "";
   };
 
+  # NVIDIA RTX 4060 Ti（シングル GPU、内蔵グラフィックなし）
+  hardware.nvidia = {
+    modesetting.enable = true;
+    # オープンソースカーネルモジュール（Turing 以降推奨）
+    open = true;
+    nvidiaSettings = true;
+    package = pkgs.linuxPackages.nvidiaPackages.stable;
+  };
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  # KDE Plasma 6
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
+
   # Wayland / Hyprland
-  programs.hyprland.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    # NVIDIA 向け: DRM カーネルモードセッティングを有効化
+    withUWSM = true;
+  };
 
   services.printing.enable = true;
 
