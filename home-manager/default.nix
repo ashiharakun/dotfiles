@@ -24,7 +24,6 @@ in
       sheldon
       zoxide
       yt-dlp
-      codex
       pkgs-unstable.claude-code
       ffmpeg
       plemoljp-nf
