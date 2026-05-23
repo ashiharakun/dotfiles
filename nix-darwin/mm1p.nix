@@ -26,7 +26,6 @@
       "vivaldi"
       "1password-cli"
       "zed"
-      "codex"
     ];
   };
 }
