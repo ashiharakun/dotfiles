@@ -1,4 +1,9 @@
-{ self, pkgs, userName, ... }:
+{
+  self,
+  pkgs,
+  userName,
+  ...
+}:
 
 {
   environment.systemPackages = [

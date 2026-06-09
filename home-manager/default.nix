@@ -1,11 +1,22 @@
-{ config, pkgs, pkgs-unstable, lib, userName, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  lib,
+  userName,
+  ...
+}:
 let
   dotfilesDir = "${config.home.homeDirectory}/dotfiles";
 in
 {
-  imports = [ ./linux.nix ];
+  imports = [
+    ./linux.nix
+    ./yazi.nix
+    ./direnv.nix
+  ];
   home = {
-    stateVersion = "25.05";
+    stateVersion = "26.05";
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
@@ -16,7 +27,6 @@ in
       gh
       ghq
       lazygit
-      yazi
       mise
       starship
       deno
@@ -38,22 +48,21 @@ in
       viAlias = true;
       vimAlias = true;
       defaultEditor = true;
+      sideloadInitLua = true;
     };
     zsh = {
       enable = true;
       initContent = lib.mkMerge [
-        (lib.mkBefore (lib.optionalString pkgs.stdenv.isDarwin ''
-          # Prefer Nix paths over Homebrew (macOS only)
-          path=("/run/current-system/sw/bin" "/etc/profiles/per-user/${userName}/bin" "$HOME/.nix-profile/bin" $path)
-        ''))
+        (lib.mkBefore (
+          lib.optionalString pkgs.stdenv.isDarwin ''
+            # Prefer Nix paths over Homebrew (macOS only)
+            path=("/run/current-system/sw/bin" "/etc/profiles/per-user/${userName}/bin" "$HOME/.nix-profile/bin" $path)
+          ''
+        ))
         ''
           source "${dotfilesDir}/zsh/zshrc"
         ''
       ];
-    };
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
     };
   };
 
@@ -76,23 +85,23 @@ in
     configFile = {
       "nvim" = {
         source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/nvim";
-        force = true; # ensure ~/.config/nvim is a symlink to repo
+        force = true;
+        recursive = true;
       };
       "sheldon" = {
         source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/sheldon";
         force = true;
-      };
-      "yazi" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/yazi";
-        force = true;
+        recursive = true;
       };
       "zeno" = {
         source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zeno";
         force = true;
+        recursive = true;
       };
       "ghostty" = {
         source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/ghostty";
         force = true;
+        recursive = true;
       };
     };
   };
