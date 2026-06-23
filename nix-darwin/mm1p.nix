@@ -21,9 +21,7 @@
       "firefox"
       "ghostty"
       "obsidian"
-      "pearcleaner"
       "raycast"
-      "vivaldi"
       "1password-cli"
       "zed"
     ];
