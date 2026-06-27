@@ -35,7 +35,7 @@ macOS (aarch64-darwin) および NixOS (aarch64-linux, x86_64-linux) 向けの d
 
 ## Nix ファイル編集時の注意
 
-- フォーマッターは `nixpkgs-fmt`（`nix fmt` で実行）
+- フォーマッターは `nixfmt`（`nix fmt` で実行、`treefmt-nix` 経由）
 - パッケージ追加は `home-manager/default.nix` の `home.packages` へ
 - Homebrew cask 追加は `nix-darwin/mm1p.nix` の `homebrew.casks` へ
 - NixOS ホスト固有設定は `nixos/hosts/<hostname>/configuration.nix` へ

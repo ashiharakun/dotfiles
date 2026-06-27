@@ -18,6 +18,10 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs-nixos";
+    };
   };
 
   outputs =
@@ -134,6 +138,7 @@
               system = "x86_64-linux";
               specialArgs = { inherit self userName; };
               modules = [
+                inputs.nixos-wsl.nixosModules.default
                 ./nixos/hosts/basil/configuration.nix
                 home-manager.nixosModules.home-manager
                 {
