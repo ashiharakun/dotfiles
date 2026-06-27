@@ -38,6 +38,7 @@ in
       pkgs-unstable.codex
       ffmpeg
       plemoljp-nf
+      rtk
     ];
   };
 
