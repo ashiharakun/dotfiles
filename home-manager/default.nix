@@ -24,6 +24,7 @@ in
     packages = with pkgs; [
       git
       eza
+      jq
       gh
       ghq
       lazygit
@@ -46,6 +47,13 @@ in
 
   programs = {
     home-manager.enable = true;
+    git = {
+      enable = true;
+      settings.user = {
+        name = "ashiharakun";
+        email = "github.reconcile469@passmail.net";
+      };
+    };
     neovim = {
       enable = true;
       viAlias = true;

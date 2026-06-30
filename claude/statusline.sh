@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # 標準入力からJSON形式のデータを読み込む
 input=$(cat)
 
@@ -11,7 +11,7 @@ rate_5h=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty
 rate_7d=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
 
 # レイテンシを秒に変換（小数点1桁）
-latency=$(echo "scale=1; $duration_ms / 1000" | bc)
+latency=$(awk "BEGIN {printf \"%.1f\", $duration_ms / 1000}")
 
 # カレントディレクトリを短く表示（ホームディレクトリを~に置換）
 display_dir="${cwd/#$HOME/~}"
