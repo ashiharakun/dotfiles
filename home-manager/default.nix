@@ -35,7 +35,6 @@ in
       zoxide
       yt-dlp
       pkgs-unstable.claude-code
-      pkgs-unstable.codex
       ffmpeg
       plemoljp-nf
       rtk
