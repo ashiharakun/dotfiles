@@ -38,6 +38,9 @@ in
       ffmpeg
       plemoljp-nf
       rtk
+      lua-language-server
+      nil
+      bash-language-server
     ];
   };
 

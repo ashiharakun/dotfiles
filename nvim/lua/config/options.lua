@@ -17,4 +17,11 @@ vim.o.smartcase = true
 vim.o.inccommand = 'split'
 vim.o.hlsearch = true
 
-vim.o.helplang = 'ja', 'en'
+vim.o.helplang = 'ja,en'
+
+-- 組み込みtreesitterハイライト（パーサーが存在するファイルタイプのみ有効）
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function()
+        pcall(vim.treesitter.start)
+    end,
+})
