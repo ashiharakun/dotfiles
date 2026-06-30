@@ -49,9 +49,12 @@ in
     home-manager.enable = true;
     git = {
       enable = true;
-      settings.user = {
-        name = "ashiharakun";
-        email = "github.reconcile469@passmail.net";
+      settings = {
+        user = {
+          name = "ashiharakun";
+          email = "github.reconcile469@passmail.net";
+        };
+        url."git@github.com:".insteadOf = "https://github.com/";
       };
     };
     neovim = {
