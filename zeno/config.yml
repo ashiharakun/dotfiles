@@ -22,4 +22,4 @@ snippets:
     snippet: sudo darwin-rebuild switch --flake .#mm1p
   - name: nix flake update
     keyword: nfu
-    snippet: nix flake update
+    snippet: NIX_CONFIG="access-tokens = github.com=$(gh auth token)" nix flake update
