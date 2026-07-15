@@ -17,7 +17,9 @@
         "api.github.com",
         "*.githubusercontent.com",
         "*.npmjs.org",
-        "pypi.org"
+        "pypi.org",
+        "localhost",
+        "127.0.0.1"
       ]
     },
     "filesystem": {

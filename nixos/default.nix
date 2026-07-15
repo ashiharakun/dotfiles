@@ -20,6 +20,8 @@
 
   programs.zsh.enable = true;
 
+  programs.nix-ld.enable = true;
+
   i18n.defaultLocale = "ja_JP.UTF-8";
 
   i18n.inputMethod = {
