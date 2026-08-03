@@ -175,6 +175,26 @@
               ];
             };
 
+            nixosConfigurations."mint" = nixpkgs-nixos.lib.nixosSystem {
+              system = "x86_64-linux";
+              specialArgs = { inherit self userName; };
+              modules = [
+                ./nixos/hosts/mint/configuration.nix
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager = {
+                    extraSpecialArgs = {
+                      inherit self userName;
+                      pkgs-unstable = unstablePkgsFor "x86_64-linux";
+                    };
+                    useGlobalPkgs = true;
+                    useUserPackages = true;
+                    users.${userName} = import ./home-manager/hosts/mint.nix;
+                  };
+                }
+              ];
+            };
+
             homeConfigurations = homes // {
               # convenience: `home-manager switch --flake .#${userName}`
               ${userName} = defaultHome;
