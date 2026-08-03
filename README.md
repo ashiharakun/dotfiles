@@ -17,8 +17,11 @@ sudo darwin-rebuild switch --flake .#mm1p
 # paseri (aarch64-linux)
 sudo nixos-rebuild switch --flake .#paseri
 
-# basil (x86_64-linux)
+# basil (x86_64-linux, WSL2)
 sudo nixos-rebuild switch --flake .#basil
+
+# sage (x86_64-linux, NVIDIA RTX 4060 Ti)
+sudo nixos-rebuild switch --flake .#sage
 ```
 
 ### Home Manager のみ適用（Linux/NixOS や macOS でユーザー設定だけ反映）
