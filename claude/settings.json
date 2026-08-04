@@ -22,13 +22,17 @@
         "127.0.0.1"
       ],
       "allowUnixSockets": [
-        "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+        "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock",
+        "/nix/var/nix/daemon-socket/socket"
       ]
     },
     "filesystem": {
       "denyRead": [
         "~/.ssh",
         "~/.gnupg"
+      ],
+      "allowWrite": [
+        "~/.cache/nix"
       ]
     }
   },
