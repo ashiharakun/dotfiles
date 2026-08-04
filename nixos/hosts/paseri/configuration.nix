@@ -20,6 +20,8 @@
     variant = "";
   };
 
+  services.hazkey.enable = true;
+
   # KDE Plasma 6
   services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm = {

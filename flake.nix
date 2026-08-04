@@ -122,6 +122,7 @@
             nixosConfigurations."paseri" = nixpkgs-nixos.lib.nixosSystem {
               specialArgs = { inherit self userName; };
               modules = [
+                inputs.nix-hazkey.nixosModules.hazkey
                 ./nixos/hosts/paseri/configuration.nix
                 home-manager.nixosModules.home-manager
                 {
