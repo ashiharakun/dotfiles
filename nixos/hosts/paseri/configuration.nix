@@ -15,16 +15,20 @@
   time.timeZone = "Asia/Tokyo";
 
   services.xserver.enable = true;
-  services.xserver.desktopManager.cinnamon.enable = true;
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
 
+  # KDE Plasma 6
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
+
   # Wayland / Hyprland
   programs.hyprland.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
 
   services.printing.enable = true;
 
