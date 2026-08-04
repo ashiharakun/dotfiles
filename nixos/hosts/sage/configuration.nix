@@ -31,6 +31,8 @@
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  services.hazkey.enable = true;
+
   # KDE Plasma 6
   services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm = {

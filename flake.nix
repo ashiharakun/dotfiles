@@ -143,6 +143,7 @@
               system = "x86_64-linux";
               specialArgs = { inherit self userName; };
               modules = [
+                inputs.nix-hazkey.nixosModules.hazkey
                 ./nixos/hosts/sage/configuration.nix
                 home-manager.nixosModules.home-manager
                 {
