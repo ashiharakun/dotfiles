@@ -13,9 +13,11 @@ macOS (aarch64-darwin) および NixOS (aarch64-linux, x86_64-linux) 向けの d
 - `nixos/hosts/paseri/` — NixOS ホスト `paseri`（aarch64-linux）固有設定（`configuration.nix`, `hardware-configuration.nix`）
 - `nixos/hosts/basil/` — NixOS ホスト `basil`（x86_64-linux, WSL2）固有設定（`configuration.nix`, `hardware-configuration.nix`）
 - `nixos/hosts/sage/` — NixOS ホスト `sage`（x86_64-linux, NVIDIA RTX 4060 Ti 搭載の物理マシン向け）固有設定（`configuration.nix`, `hardware-configuration.nix`）
-- `home-manager/default.nix` — ユーザー環境の共通設定（パッケージ、シェル、シンボリックリンク）。Linux 向け追加設定は `linux.nix` を import
-- `home-manager/linux.nix` — Linux 専用 Home Manager 設定（Hyprland, fcitx5 キーバインド, Firefox 等）
-- `home-manager/hosts/ashiharakun.nix` — ユーザー固有の設定オーバーライド用。`../default.nix` を import
+- `home-manager/default.nix` — ユーザー環境の共通設定（パッケージ、シェル、シンボリックリンク）。全ホスト共通、GUI の有無を問わない
+- `home-manager/linux-gui.nix` — Linux で GUI がある端末専用の Home Manager 設定（Hyprland, fcitx5 キーバインド, Firefox 等）。`default.nix` に加えて GUI があるホストの設定ファイルからのみ import する
+- `home-manager/hosts/ashiharakun.nix` — GUI のないホスト（`basil` など）向け。`../default.nix` のみを import
+- `home-manager/hosts/paseri.nix`, `home-manager/hosts/sage.nix` — GUI があるホスト向け。`../default.nix` と `../linux-gui.nix` を import
+- `home-manager/hosts/mint.nix` — サーバー用途の `mint` 向け。`../default.nix` のみを import
 
 ### dotfiles の配置方式
 
@@ -41,4 +43,4 @@ macOS (aarch64-darwin) および NixOS (aarch64-linux, x86_64-linux) 向けの d
 - Homebrew cask 追加は `nix-darwin/mm1p.nix` の `homebrew.casks` へ
 - NixOS ホスト固有設定は `nixos/hosts/<hostname>/configuration.nix` へ
 - 新しいホスト対応は `nix-darwin/` または `nixos/hosts/` と `home-manager/hosts/` にそれぞれファイルを追加
-- Linux 専用 Home Manager 設定は `home-manager/linux.nix` に追記（`lib.mkIf pkgs.stdenv.isLinux` で条件分岐済み）
+- GUI がある Linux ホスト専用の Home Manager 設定は `home-manager/linux-gui.nix` に追記し、GUI があるホストの `home-manager/hosts/<hostname>.nix` から import する（GUI のないホストからは import しないこと）
