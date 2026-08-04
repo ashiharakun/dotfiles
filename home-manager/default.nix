@@ -11,7 +11,6 @@ let
 in
 {
   imports = [
-    ./linux.nix
     ./yazi.nix
     ./direnv.nix
   ];

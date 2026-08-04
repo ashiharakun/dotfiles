@@ -1,11 +1,6 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ config, ... }:
 
-lib.mkIf pkgs.stdenv.isLinux {
+{
   xdg.configFile."hypr" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/hypr";
     force = true;

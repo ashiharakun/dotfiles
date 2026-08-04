@@ -128,7 +128,7 @@
                     };
                     useGlobalPkgs = true;
                     useUserPackages = true;
-                    users.${userName} = import ./home-manager/hosts/ashiharakun.nix;
+                    users.${userName} = import ./home-manager/hosts/paseri.nix;
                   };
                 }
               ];
@@ -148,7 +148,7 @@
                     };
                     useGlobalPkgs = true;
                     useUserPackages = true;
-                    users.${userName} = import ./home-manager/hosts/ashiharakun.nix;
+                    users.${userName} = import ./home-manager/hosts/sage.nix;
                   };
                 }
               ];
