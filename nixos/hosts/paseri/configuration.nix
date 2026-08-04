@@ -49,8 +49,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    ghostty
-    obsidian
     vivaldi
     # Hyprland 関連
     waybar

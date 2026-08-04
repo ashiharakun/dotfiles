@@ -1,6 +1,16 @@
-{ config, ... }:
+{ config, pkgs, lib, ... }:
 
 {
+  home.packages =
+    with pkgs;
+    [
+      ghostty
+      obsidian
+      zed-editor
+    ]
+    # discord は aarch64-linux 未対応
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [ discord ];
+
   xdg.configFile."hypr" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/hypr";
     force = true;
