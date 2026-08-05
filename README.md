@@ -22,6 +22,9 @@ sudo nixos-rebuild switch --flake .#basil
 
 # sage (x86_64-linux, NVIDIA RTX 4060 Ti)
 sudo nixos-rebuild switch --flake .#sage
+
+# mint (x86_64-linux, サーバー)
+sudo nixos-rebuild switch --flake .#mint
 ```
 
 ### Home Manager のみ適用（Linux/NixOS や macOS でユーザー設定だけ反映）
