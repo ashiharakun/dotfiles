@@ -57,17 +57,6 @@ in
         url."git@github.com:".insteadOf = "https://github.com/";
       };
     };
-    ssh = {
-      enable = true;
-      # git の insteadOf で github.com への通信を SSH 経由に書き換えているため、
-      # 新規ホストでの初回接続時に known_hosts が無く失敗するのを防ぐ
-      knownHosts = {
-        "github.com" = {
-          hostNames = [ "github.com" ];
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
-        };
-      };
-    };
     neovim = {
       enable = true;
       viAlias = true;
