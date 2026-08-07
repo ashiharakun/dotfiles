@@ -34,7 +34,6 @@ in
       sheldon
       zoxide
       yt-dlp
-      pkgs-unstable.claude-code
       pkgs-unstable.herdr
       ffmpeg
       plemoljp-nf
@@ -77,21 +76,6 @@ in
           source "${dotfilesDir}/zsh/zshrc"
         ''
       ];
-    };
-  };
-
-  home.file = {
-    ".claude/CLAUDE.md" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/claude/CLAUDE.md";
-    };
-    ".claude/settings.json" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/claude/settings.json";
-    };
-    ".claude/statusline.sh" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/claude/statusline.sh";
-    };
-    ".claude/skills" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/claude/skills";
     };
   };
 
