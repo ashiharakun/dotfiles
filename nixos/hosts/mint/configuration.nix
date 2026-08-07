@@ -20,25 +20,31 @@
   services.zfs.trim.enable = true;
 
   # tank 配下の各 dataset は mountpoint=legacy にした上でここでマウント管理する
+  # nofail: tank プールが未作成でも起動を継続できるようにする(プール作成後は自動的にマウントされる)
   fileSystems."/hdd/misskey" = {
     device = "tank/misskey";
     fsType = "zfs";
+    options = [ "nofail" ];
   };
   fileSystems."/hdd/nextcloud" = {
     device = "tank/nextcloud";
     fsType = "zfs";
+    options = [ "nofail" ];
   };
   fileSystems."/hdd/karakeep" = {
     device = "tank/karakeep";
     fsType = "zfs";
+    options = [ "nofail" ];
   };
   fileSystems."/hdd/freshrss" = {
     device = "tank/freshrss";
     fsType = "zfs";
+    options = [ "nofail" ];
   };
   fileSystems."/hdd/beszel" = {
     device = "tank/beszel";
     fsType = "zfs";
+    options = [ "nofail" ];
   };
 
   time.timeZone = "Asia/Tokyo";
