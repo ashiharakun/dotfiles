@@ -53,10 +53,14 @@
 
   services.tailscale.enable = true;
 
-  services.adguardhome.enable = true; # 管理画面はデフォルトの3000番のまま。karakeep側を81番にずらして競合回避
+  services.adguardhome.enable = true;
 
   environment.systemPackages = with pkgs; [
     docker-compose
+    rclone
+    jq
+    curl
+    gzip
   ];
 
   system.stateVersion = "26.05";
