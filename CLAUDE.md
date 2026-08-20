@@ -16,8 +16,10 @@ macOS (aarch64-darwin) および NixOS (aarch64-linux, x86_64-linux) 向けの d
 - `nixos/hosts/mint/` — NixOS ホスト `mint`（x86_64-linux, ZFS + Docker で各種サービスを動かすサーバー向け）固有設定（`configuration.nix`, `hardware-configuration.nix`）
 - `home-manager/default.nix` — ユーザー環境の共通設定（パッケージ、シェル、シンボリックリンク）。全ホスト共通、GUI の有無を問わない
 - `home-manager/linux-gui.nix` — Linux で GUI がある端末専用の Home Manager 設定（Hyprland, fcitx5 キーバインド, Firefox 等）。`default.nix` に加えて GUI があるホストの設定ファイルからのみ import する
+- `home-manager/linux-gui-standalone.nix` — NixOS ではない Linux（Pop!_OS など）かつサーバーではないホスト専用の GUI アプリ（Ghostty 等）。ディスプレイマネージャーや polkit 統合など NixOS のシステムモジュールに依存するものは書かないこと
 - `home-manager/hosts/ashiharakun.nix` — GUI のないホスト（`basil` など）向け。`../default.nix` のみを import
 - `home-manager/hosts/paseri.nix`, `home-manager/hosts/sage.nix` — GUI があるホスト向け。`../default.nix` と `../linux-gui.nix` を import
+- `home-manager/hosts/pop-os.nix` — NixOS ではない Linux（Pop!_OS）向け。`../default.nix` と `../linux-gui-standalone.nix` を import。`home-manager switch --flake .#pop-os` で適用
 - `home-manager/hosts/mint.nix` — サーバー用途の `mint` 向け。`../default.nix` のみを import
 
 ### dotfiles の配置方式
