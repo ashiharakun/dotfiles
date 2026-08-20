@@ -91,11 +91,7 @@
                 ];
               }
             );
-            defaultHome =
-              if inputs.nixpkgs.lib.hasAttr builtins.currentSystem homes then
-                homes.${builtins.currentSystem}
-              else
-                homes."x86_64-linux";
+            defaultHome = homes."x86_64-linux";
           in
           {
             # Build darwin flake using:
