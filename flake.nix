@@ -204,6 +204,23 @@
             homeConfigurations = homes // {
               # convenience: `home-manager switch --flake .#${userName}`
               ${userName} = defaultHome;
+
+              # NixOS ではない Linux (Pop!_OS) 向け。GUI アプリを含む。
+              # `home-manager switch --flake .#pop-os`
+              "pop-os" = home-manager.lib.homeManagerConfiguration {
+                pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux";
+                extraSpecialArgs = {
+                  inherit self userName;
+                  pkgs-unstable = unstablePkgsFor "x86_64-linux";
+                };
+                modules = [
+                  ./home-manager/hosts/pop-os.nix
+                  {
+                    home.username = userName;
+                    home.homeDirectory = homeDirFor "x86_64-linux";
+                  }
+                ];
+              };
             };
           };
       }
