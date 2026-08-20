@@ -53,7 +53,7 @@ in
           name = "ashiharakun";
           email = "github.reconcile469@passmail.net";
         };
-        url."git@github.com:".insteadOf = "https://github.com/";
+        url."git@github.com:${userName}/".insteadOf = "https://github.com/${userName}/";
       };
     };
     neovim = {
