@@ -1,2 +1,17 @@
 .pre-commit-config.yaml
 result
+
+# NixOS上でClaude Codeのセッションを開始すると生成される一時ファイル群
+# (他OSでは発生しない)
+/.bash_profile
+/.bashrc
+/.profile
+/.zprofile
+/.zshrc
+/.gitconfig
+/.gitmodules
+/.mcp.json
+/.idea
+/.vscode
+/.claude
+/.ripgreprc

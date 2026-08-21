@@ -39,6 +39,10 @@ macOS (aarch64-darwin) および NixOS (aarch64-linux, x86_64-linux) 向けの d
 | `zsh/` | zsh (zshrc, zshenv) | Home Manager の initContent から source | |
 | `claude/` | Claude Code | `~/.claude/` | CLAUDE.md, settings.json, statusline.sh, skills/ |
 
+## 補足
+
+- NixOS 上で Claude Code のセッションを開始すると、リポジトリ直下に `.bashrc` / `.zshrc` / `.gitconfig` / `.claude/` などの一時ファイルが生成されることがある（他 OS では発生しない）。`.gitignore` で除外済みなので気にしなくてよい。
+
 ## Nix ファイル編集時の注意
 
 - フォーマッターは `nixfmt`（`nix fmt` で実行、`treefmt-nix` 経由）
