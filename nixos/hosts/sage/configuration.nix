@@ -60,6 +60,8 @@
     pulse.enable = true;
   };
 
+  programs.steam.enable = true;
+
   # 1Password（GUI の polkit 統合に専用モジュールが必要）
   programs._1password.enable = true;
   programs._1password-gui = {
