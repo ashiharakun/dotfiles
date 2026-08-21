@@ -12,6 +12,7 @@
       ghostty
       obsidian
       zed-editor
+      nextcloud-client
     ]
     # discord は aarch64-linux 未対応
     ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [ discord ];
