@@ -70,7 +70,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    vivaldi
     # Hyprland 関連
     waybar
     wofi
