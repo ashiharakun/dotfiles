@@ -27,7 +27,10 @@ sudo nixos-rebuild switch --flake .#sage
 sudo nixos-rebuild switch --flake .#mint
 ```
 
-### Home Manager のみ適用（Linux/NixOS や macOS でユーザー設定だけ反映）
+### Home Manager のみ適用（非NixOSのLinuxでユーザー設定だけ反映）
+
+macOS では nix-darwin 経由（上記）を使うこと。このコマンドは非NixOSの x86_64-linux 向け固定なので macOS では使わない。
+
 ```bash
 home-manager switch --flake .#ashiharakun
 ```
