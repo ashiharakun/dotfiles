@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   imports = [
@@ -7,5 +7,8 @@
     ../claude.nix
   ];
 
-  # 端末固有の home-manager 設定を追加する場合はここに書きます。
+  # Bitwarden デスクトップアプリの SSH エージェントを使う（.deb / AppImage 版）。
+  # Flatpak 版なら
+  # "${config.home.homeDirectory}/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock"
+  home.sessionVariables.SSH_AUTH_SOCK = "${config.home.homeDirectory}/.bitwarden-ssh-agent.sock";
 }
