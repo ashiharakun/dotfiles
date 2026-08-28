@@ -1,41 +1,4 @@
 {
-  "language": "Japanese",
-  "tui": "fullscreen",
-  "preferredNotifChannel": "ghostty",
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.sh"
-  },
-  "sandbox": {
-    "enabled": true,
-    "autoAllowBashIfSandboxed": true,
-    "excludedCommands": ["docker"],
-    "allowUnsandboxedCommands": false,
-    "network": {
-      "allowedDomains": [
-        "github.com",
-        "api.github.com",
-        "*.githubusercontent.com",
-        "*.npmjs.org",
-        "pypi.org",
-        "localhost",
-        "127.0.0.1"
-      ],
-      "allowUnixSockets": [
-        "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock",
-        "/nix/var/nix/daemon-socket/socket"
-      ]
-    },
-    "filesystem": {
-      "denyRead": [
-        "~/.ssh",
-        "~/.gnupg"
-      ],
-      "allowWrite": [
-        "~/.cache/nix"
-      ]
-    }
-  },
   "hooks": {
     "Notification": [
       {
@@ -82,5 +45,45 @@
         ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "language": "Japanese",
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "allowUnsandboxedCommands": false,
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "api.github.com",
+        "*.githubusercontent.com",
+        "*.npmjs.org",
+        "pypi.org",
+        "localhost",
+        "127.0.0.1"
+      ],
+      "allowUnixSockets": [
+        "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock",
+        "/nix/var/nix/daemon-socket/socket"
+      ]
+    },
+    "filesystem": {
+      "allowWrite": [
+        "~/.cache/nix"
+      ],
+      "denyRead": [
+        "~/.ssh",
+        "~/.gnupg"
+      ]
+    },
+    "excludedCommands": [
+      "docker"
+    ]
+  },
+  "tui": "fullscreen",
+  "preferredNotifChannel": "ghostty",
+  "agentPushNotifEnabled": true
 }
