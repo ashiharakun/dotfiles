@@ -72,7 +72,8 @@
     },
     "filesystem": {
       "allowWrite": [
-        "~/.cache/nix"
+        "~/.cache/nix",
+        "~/.local/share/rtk"
       ],
       "denyRead": [
         "~/.ssh",
