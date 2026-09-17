@@ -15,13 +15,16 @@
       autoUpdate = true;
       upgrade = true;
     };
+    taps = [
+      "abue-ammar/tinycast"
+    ];
     brews = [ ];
     casks = [
       "discord"
       "firefox"
       "ghostty"
       "obsidian"
-      "raycast"
+      "abue-ammar/tinycast/tinycast"
       "1password-cli"
       "zed"
     ];
