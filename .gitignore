@@ -15,3 +15,6 @@ result
 /.vscode
 /.claude
 /.ripgreprc
+
+# Claude Code が claude.ai から同期するスキル (自動生成)
+/claude/skills/synced/
