@@ -27,6 +27,22 @@
       "abue-ammar/tinycast/tinycast"
       "1password-cli"
       "zed"
+      "moonlight"
+      "vivaldi"
+      "pearcleaner"
+      "1password"
+      "claude"
+      "karabiner-elements"
+      "lm-studio"
+      "libreoffice"
+      "netnewswire"
+      "nextcloud"
+      "proton-pass"
+      "scroll-reverser"
+      "steam"
+      "tailscale-app"
+      "utm"
+      "hhkb-studio"
     ];
   };
 }
