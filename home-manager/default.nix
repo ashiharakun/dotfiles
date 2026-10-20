@@ -29,7 +29,6 @@ in
       lazygit
       mise
       starship
-      deno
       fzf
       sheldon
       zoxide
