@@ -33,7 +33,7 @@ macOS (aarch64-darwin) および NixOS (aarch64-linux, x86_64-linux) 向けの d
 | `nvim/` | Neovim (lazy.nvim) | `~/.config/nvim` | |
 | `sheldon/` | sheldon (zsh プラグイン) | `~/.config/sheldon` | |
 | `yazi/` | yazi (ファイラー) | `~/.config/yazi` | |
-| `zeno/` | zeno (zsh 補完) | `~/.config/zeno` | |
+| `zsh-abbr/` | zsh-abbr (略語展開) | `~/.config/zsh-abbr` | |
 | `ghostty/` | Ghostty (ターミナル) | `~/.config/ghostty` | |
 | `hypr/` | Hyprland (ウィンドウマネージャー) | `~/.config/hypr` | Linux のみ |
 | `zsh/` | zsh (zshrc, zshenv) | Home Manager の initContent から source | |

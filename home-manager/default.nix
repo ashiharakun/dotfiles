@@ -91,10 +91,10 @@ in
         force = true;
         recursive = true;
       };
-      "zeno" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zeno";
+      # zsh-abbr は abbr add 時に mv でファイルを置き換えるため、ディレクトリごとリンクする
+      "zsh-abbr" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zsh-abbr";
         force = true;
-        recursive = true;
       };
       "ghostty" = {
         source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/ghostty";

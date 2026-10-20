@@ -1,0 +1,8 @@
+abbr "dps"="docker ps"
+abbr "gg"="ghq get"
+abbr "glg"="git log --oneline --graph --decorate"
+abbr "gs"="git status --short --branch"
+abbr "lg"="lazygit"
+abbr "nfu"="NIX_CONFIG=\"access-tokens = github.com=\$(gh auth token)\" nix flake update"
+abbr "nrb"="sudo darwin-rebuild switch --flake .#mm1p"
+abbr "pipup"="pip list -o | tail -n +3 | awk '{ print \$1 }' | xargs pip install -U"
