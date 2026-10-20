@@ -14,8 +14,8 @@ github = "zsh-users/zsh-completions"
 [plugins.zsh-abbr]
 github = "olets/zsh-abbr"
 
-[plugins.fast-syntax-highlighting]
-github = "zdharma-continuum/fast-syntax-highlighting"
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
 apply = ["defer"]
 
 [templates]
