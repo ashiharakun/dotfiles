@@ -54,6 +54,12 @@ zshaddhistory() {
     [[ ! "$line" =~ "^(cd|jj?|lazygit|la|ll|ls|rm|rmdir)($| )" ]]
 }
 
+# zsh-abbr の略語を展開前でもハイライトする（起動時に読み込まれた略語のみ対象）
+if (( ${#ABBR_REGULAR_USER_ABBREVIATIONS} )); then
+  ZSH_HIGHLIGHT_HIGHLIGHTERS=(main regexp)
+  ZSH_HIGHLIGHT_REGEXP=('^[[:blank:]]*('${(j:|:)${(Qk)ABBR_REGULAR_USER_ABBREVIATIONS}}')$' fg=blue)
+fi
+
 # yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
