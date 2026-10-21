@@ -64,5 +64,6 @@
   },
   "tui": "fullscreen",
   "preferredNotifChannel": "ghostty",
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "awaySummaryEnabled": false
 }
