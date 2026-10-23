@@ -150,7 +150,7 @@
                     };
                     useGlobalPkgs = true;
                     useUserPackages = true;
-                    users.${userName} = import ./home-manager/hosts/ashiharakun.nix;
+                    users.${userName} = import ./home-manager/hosts/basil.nix;
                   };
                 }
               ];
