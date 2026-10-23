@@ -19,12 +19,6 @@ sudo nixos-rebuild switch --flake .#paseri
 
 # basil (x86_64-linux, WSL2)
 sudo nixos-rebuild switch --flake .#basil
-
-# sage (x86_64-linux, NVIDIA RTX 4060 Ti)
-sudo nixos-rebuild switch --flake .#sage
-
-# mint (x86_64-linux, サーバー)
-sudo nixos-rebuild switch --flake .#mint
 ```
 
 ### basil (WSL2) の初回セットアップ

@@ -135,27 +135,6 @@
               ];
             };
 
-            nixosConfigurations."sage" = nixpkgs-nixos.lib.nixosSystem {
-              system = "x86_64-linux";
-              specialArgs = { inherit self userName; };
-              modules = [
-                inputs.nix-hazkey.nixosModules.hazkey
-                ./nixos/hosts/sage/configuration.nix
-                home-manager.nixosModules.home-manager
-                {
-                  home-manager = {
-                    extraSpecialArgs = {
-                      inherit self userName;
-                      pkgs-unstable = unstablePkgsFor "x86_64-linux";
-                    };
-                    useGlobalPkgs = true;
-                    useUserPackages = true;
-                    users.${userName} = import ./home-manager/hosts/sage.nix;
-                  };
-                }
-              ];
-            };
-
             nixosConfigurations."basil" = nixpkgs-nixos.lib.nixosSystem {
               system = "x86_64-linux";
               specialArgs = { inherit self userName; };
@@ -172,26 +151,6 @@
                     useGlobalPkgs = true;
                     useUserPackages = true;
                     users.${userName} = import ./home-manager/hosts/ashiharakun.nix;
-                  };
-                }
-              ];
-            };
-
-            nixosConfigurations."mint" = nixpkgs-nixos.lib.nixosSystem {
-              system = "x86_64-linux";
-              specialArgs = { inherit self userName; };
-              modules = [
-                ./nixos/hosts/mint/configuration.nix
-                home-manager.nixosModules.home-manager
-                {
-                  home-manager = {
-                    extraSpecialArgs = {
-                      inherit self userName;
-                      pkgs-unstable = unstablePkgsFor "x86_64-linux";
-                    };
-                    useGlobalPkgs = true;
-                    useUserPackages = true;
-                    users.${userName} = import ./home-manager/hosts/mint.nix;
                   };
                 }
               ];
