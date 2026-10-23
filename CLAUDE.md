@@ -15,7 +15,8 @@ macOS (aarch64-darwin) および NixOS (aarch64-linux, x86_64-linux) 向けの d
 - `home-manager/default.nix` — ユーザー環境の共通設定（パッケージ、シェル、シンボリックリンク）。全ホスト共通、GUI の有無を問わない
 - `home-manager/linux-gui.nix` — Linux で GUI がある端末専用の Home Manager 設定（Hyprland, fcitx5 キーバインド, Firefox 等）。`default.nix` に加えて GUI があるホストの設定ファイルからのみ import する
 - `home-manager/linux-gui-standalone.nix` — NixOS ではない Linux（Linux Mint など）かつサーバーではないホスト専用の GUI アプリ。ディスプレイマネージャーや polkit 統合など NixOS のシステムモジュールに依存するものは書かないこと。GPU レンダリングに依存するアプリ（Ghostty 等）は非 NixOS + NVIDIA プロプライエタリドライバ環境で OpenGL コンテキスト取得に失敗するため、ここには入れずディストリ側のパッケージを使う
-- `home-manager/hosts/ashiharakun.nix` — GUI のないホスト（`basil` など）向け。`../default.nix` のみを import
+- `home-manager/hosts/ashiharakun.nix` — GUI のないホスト（`mm1p`、standalone など）向け。`../default.nix` と `../claude.nix` を import
+- `home-manager/hosts/basil.nix` — WSL2 の `basil` 向け。`./ashiharakun.nix` を import し、git の `core.sshCommand` を Windows の `ssh.exe` にして 1Password の SSH エージェントを使う
 - `home-manager/hosts/paseri.nix` — GUI があるホスト向け。`../default.nix` と `../linux-gui.nix` を import
 - `home-manager/hosts/4060ti.nix` — NixOS ではない Linux（Linux Mint、hostname `4060ti`）向け。`../default.nix` と `../linux-gui-standalone.nix` と `../claude.nix` を import。`home-manager switch --flake .#4060ti` で適用
 
