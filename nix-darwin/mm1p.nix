@@ -16,7 +16,6 @@
       upgrade = true;
     };
     taps = [
-      "abue-ammar/tinycast"
     ];
     brews = [ ];
     casks = [
@@ -24,7 +23,7 @@
       "firefox"
       "ghostty"
       "obsidian"
-      "abue-ammar/tinycast/tinycast"
+      "tinycast"
       "1password-cli"
       "zed"
       "moonlight"
